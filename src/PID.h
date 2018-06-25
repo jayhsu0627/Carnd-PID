@@ -1,5 +1,6 @@
 #ifndef PID_H
 #define PID_H
+#include <chrono>
 
 class PID {
 public:
@@ -16,6 +17,11 @@ public:
   double Kp;
   double Ki;
   double Kd;
+  //Interim Values
+  double prev_cte;
+  std::chrono::time_point<std::chrono::system_clock> prev_time;
+  std::chrono::time_point<std::chrono::system_clock> current_time;
+  double dt;
 
   /*
   * Constructor
